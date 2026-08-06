@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SealedStock | Trading Cards</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Outfit',sans-serif;
+background:#0b0d12;
+color:white;
+overflow-x:hidden;
+
+}
+
+/* Hintergrund */
+
+body::before{
+
+content:"";
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(229,190,106,.10),transparent 30%),
+radial-gradient(circle at 80% 40%,rgba(229,190,106,.08),transparent 25%),
+linear-gradient(#0b0d12,#141820);
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:#e5be6a20;
+filter:blur(160px);
+border-radius:50%;
+top:-150px;
+right:-100px;
+z-index:-1;
+
+}
+
+/* Navigation */
+
+nav{
+
+position:fixed;
+width:100%;
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(10,10,10,.35);
+backdrop-filter:blur(15px);
+z-index:999;
+
+}
+
+nav a{
+
+text-decoration:none;
+color:white;
+margin-left:30px;
+font-weight:300;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#E5BE6A;
+
+}
+
+/* Hero */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding:120px 20px;
+
+}
+
+.hero img{
+
+width:420px;
+max-width:90%;
+margin-bottom:40px;
+filter:drop-shadow(0 0 30px rgba(229,190,106,.25));
+
+}
+
+.hero h1{
+
+font-size:70px;
+font-weight:700;
+line-height:1.1;
+margin-bottom:25px;
+
+}
+
+.gold{
+
+color:#E5BE6A;
+
+}
+
+.hero p{
+
+font-size:22px;
+max-width:700px;
+margin:auto;
+color:#cfcfcf;
+line-height:1.8;
+
+}
+
+.button{
+
+display:inline-block;
+margin-top:50px;
+
+padding:18px 45px;
+
+border:1px solid #E5BE6A;
+
+color:#E5BE6A;
+
+text-decoration:none;
+
+border-radius:50px;
+
+transition:.35s;
+
+}
+
+.button:hover{
+
+background:#E5BE6A;
+color:#111;
+
+box-shadow:0 0 30px rgba(229,190,106,.4);
+
+}
+
+/* Sektionen */
+
+section{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:120px 30px;
+
+}
+
+.title{
+
+font-size:42px;
+margin-bottom:25px;
+color:#E5BE6A;
+
+}
+
+.text{
+
+font-size:20px;
+color:#c8c8c8;
+line-height:1.9;
+
+max-width:900px;
+
+}
+
+/* Karten */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+
+margin-top:60px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(229,190,106,.15);
+
+backdrop-filter:blur(18px);
+
+padding:45px 35px;
+
+border-radius:22px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+border-color:#E5BE6A;
+
+box-shadow:0 25px 60px rgba(229,190,106,.18);
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+font-size:26px;
+
+}
+
+.card p{
+
+color:#bfbfbf;
+line-height:1.7;
+
+}
+
+/* Zitat */
+
+.quote{
+
+text-align:center;
+
+font-size:52px;
+
+font-weight:200;
+
+color:white;
+
+line-height:1.4;
+
+}
+
+.quote span{
+
+color:#E5BE6A;
+
+}
+
+/* Kontakt */
+
+.contact{
+
+text-align:center;
+
+}
+
+.contact a{
+
+color:#E5BE6A;
+
+text-decoration:none;
+
+font-size:22px;
+
+}
+
+/* Footer */
+
+footer{
+
+padding:40px;
+
+text-align:center;
+
+color:#888;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:46px;
+
+}
+
+.quote{
+
+font-size:34px;
+
+}
+
+.title{
+
+font-size:34px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div style="font-weight:600;color:#E5BE6A;">
+SealedStock
+</div>
+
+<div>
+
+<a href="#about">Über uns</a>
+<a href="#cards">Trading Cards</a>
+<a href="#contact">Kontakt</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<img src="logo.jpg" alt="SealedStock">
+
+<h1>
+
+Trading Cards<br>
+
+<span class="gold">neu definieren</span>
+
+</h1>
+
+<p>
+
+Verkauf von ausschließlich versiegelter Ware - Booster, Booster Displays, Trainer Boxen plus Zubehör und vieles mehr.
+
+</p>
+
+<a class="button" href="#about">
+
+Mehr erfahren
+
+</a>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">
+
+Leidenschaft fürs Sammeln
+
+</h2>
+
+<p class="text">
+
+Die Leidenschaft gilt den beliebtesten Trading Card Games wie Pokemón, Magic The Gathering, Disney Lorcana, One Pice, Riftbound usw. sowie der Faszination des Sammelns. Ob klassische Karten und Decks oder Neuerscheinungen 
+</p>
+
+</section>
+
+<section id="cards">
+
+<h2 class="title">
+
+Unsere Welt
+
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Pokémon</h3>
+
+<p>
+
+Die gigantisch Welt von Pokemón unerreicht und riesig.Für Sammlerhezen!
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>One Piece</h3>
+
+<p>
+
+Eine dynamische TCG-Welt mit stetig wachsenden Sammlerwerten.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Disney Lorcana</h3>
+
+<p>
+
+Magische Charaktere treffen auf modernes Trading Card Design.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Magic The Gathering</h3>
+
+<p>
+
+Die Köningklasse - Riesig und komplex. Echte Leidenschaft!
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="quote">
+
+„Collect today.<br>
+
+<span>Preserve tomorrow.</span>“
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2 class="title">
+
+Kontakt
+
+</h2>
+
+<p class="text" style="margin:auto;">
+
+Du hast Fragen oder möchtest mehr erfahren?
+
+</p>
+
+<br><br>
+
+<a href="mailto:info@sealedstock.de">
+
+info@sealedstock.de
+
+</a>
+
+</section>
+
+<footer>
+
+© 2026 SealedStock · Trading Cards
+
+</footer>
+
+</body>
+</html>
