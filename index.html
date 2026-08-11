@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SealedStock | Trading Cards & Collectibles</title>
-    <meta name="description" content="SealedStock - Trading Cards, versiegelte Sammlerprodukte und Leidenschaft für die Welt der Collectibles.">
-    <meta name="keywords" content="Trading Cards, Pokémon, One Piece, Lorcana, Sammelkarten, Sealed Products">
+    <title>SealedStock | Trading Card Games & Collectibles</title>
+    <meta name="description" content="SealedStock – Dein Experte für Trading Card Games wie Pokémon, One Piece, Disney Lorcana und Magic: The Gathering. Versiegelte Booster, Displays und Sammlerstücke.">
+    <meta name="keywords" content="Trading Card Games, Pokémon TCG, One Piece TCG, Disney Lorcana, Magic: The Gathering, Booster, Sammelkarten, Sealed Products, Cardmarket">
     <meta name="author" content="SealedStock">
 
     <!-- Social Preview -->
-    <meta property="og:title" content="SealedStock | Trading Cards">
-    <meta property="og:description" content="Collect today. Preserve tomorrow.">
+    <meta property="og:title" content="SealedStock | Trading Card Games">
+    <meta property="og:description" content="Entdecke die Welt der Trading Card Games – von Pokémon bis Magic: The Gathering. Sammle, handele und erlebe die Leidenschaft.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sealedstock.de">
 
@@ -31,22 +31,24 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: #0a0c18; /* Tiefes Blau-Schwarz */
+            background: #0a0c18;
             color: white;
             overflow-x: hidden;
         }
 
-        /* Animierter Hintergrund mit angepassten Gradienten */
+        /* Animierter Hintergrund mit TCG-Thema */
         body:before {
             content: "";
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 20%, rgba(229, 190, 106, 0.15), transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(229, 190, 106, 0.10), transparent 25%);
+                radial-gradient(circle at 15% 25%, rgba(229, 190, 106, 0.12), transparent 25%),
+                radial-gradient(circle at 85% 75%, rgba(229, 190, 106, 0.08), transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(229, 190, 106, 0.05), transparent 30%);
             z-index: -2;
         }
 
+        /* Schwimmende Karten-Animationen */
         .card-bg {
             position: fixed;
             width: 120px;
@@ -59,13 +61,11 @@
             z-index: -1;
         }
 
-        .card1 { top: 15%; left: 10%; transform: rotate(-20deg); }
-        .card2 { top: 60%; right: 10%; transform: rotate(25deg); }
-        .card3 { top: 40%; left: 45%; transform: rotate(-10deg); }
-
-	.card1{animation-duration:20s;}
-	.card2{animation-duration:15s;}
-	.card3{animation-duration:24s;}
+        .card1 { top: 12%; left: 8%; transform: rotate(-20deg); animation-duration: 22s; }
+        .card2 { top: 65%; right: 8%; transform: rotate(25deg); animation-duration: 17s; }
+        .card3 { top: 35%; left: 48%; transform: rotate(-10deg); animation-duration: 26s; }
+        .card4 { top: 70%; left: 20%; transform: rotate(15deg); animation-duration: 19s; }
+        .card5 { top: 20%; right: 25%; transform: rotate(-25deg); animation-duration: 24s; }
 
         @keyframes float {
             0%, 100% { translate: 0 0; }
@@ -77,21 +77,35 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 25px 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
-            background: rgba(10, 12, 24, 0.9); /* Transparenter Hintergrund */
+            align-items: center;
+            background: rgba(10, 12, 24, 0.95);
             backdrop-filter: blur(15px);
             z-index: 100;
+        }
+
+        nav .logo-nav {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e5be6a;
+            text-decoration: none;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             margin-left: 25px;
+            font-weight: 400;
+            transition: 0.3s;
         }
 
-        /* Hero */
+        nav a:hover {
+            color: #e5be6a;
+        }
+
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -113,7 +127,7 @@
         }
 
         h1 {
-            font-size: 70px;
+            font-size: 64px;
             line-height: 1.1;
             margin: 30px 0;
         }
@@ -123,23 +137,24 @@
         }
 
         .hero p {
-            font-size: 22px;
+            font-size: 20px;
             max-width: 700px;
             color: #ccc;
+            margin: 0 auto 40px;
         }
 
-        .button {
+        .cta-button {
             display: inline-block;
-            margin-top: 40px;
             padding: 16px 40px;
             border-radius: 50px;
             border: 1px solid #e5be6a;
             color: #e5be6a;
             text-decoration: none;
             transition: 0.3s;
+            font-weight: 600;
         }
 
-        .button:hover {
+        .cta-button:hover {
             background: #e5be6a;
             color: #111;
         }
@@ -155,18 +170,23 @@
             font-size: 42px;
             color: #e5be6a;
             margin-bottom: 25px;
+            text-align: center;
         }
 
-        .text {
+        .subtitle {
             font-size: 20px;
             line-height: 1.8;
             color: #ccc;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
         }
 
+        /* Grid Layout für TCG-Welten */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
@@ -177,6 +197,7 @@
             border-radius: 22px;
             backdrop-filter: blur(12px);
             transition: 0.35s ease;
+            text-align: center;
         }
 
         .box:hover {
@@ -185,27 +206,86 @@
             box-shadow: 0 20px 40px rgba(229, 190, 106, 0.15);
         }
 
-        /* Formular */
+        .box h3 {
+            color: #e5be6a;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .box p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        /* Feature-Icons */
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #e5be6a;
+        }
+
+        /* Cardmarket Section */
+        .marketplace-section {
+            text-align: center;
+        }
+
+        .marketplace-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 16px 40px;
+            border-radius: 50px;
+            background: rgba(229, 190, 106, 0.1);
+            border: 1px solid #e5be6a;
+            color: #e5be6a;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .marketplace-button:hover {
+            background: #e5be6a;
+            color: #111;
+        }
+
+        /* Kontaktformular */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
         input, textarea {
             width: 100%;
             padding: 15px;
-            margin: 10px 0;
             background: #11131a;
             border: 1px solid #333;
             color: white;
             border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
         }
 
         textarea {
             height: 140px;
+            resize: vertical;
         }
 
-        button {
+        button[type="submit"] {
             cursor: pointer;
             background: #e5be6a;
             border: none;
             padding: 15px 35px;
             border-radius: 30px;
+            color: #111;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: rgba(229, 190, 106, 0.8);
         }
 
         /* Footer */
@@ -218,122 +298,251 @@
 
         footer a {
             color: #e5be6a;
+            text-decoration: none;
         }
 
-        @media (max-width: 700px) {
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             h1 { font-size: 42px; }
             .title { font-size: 32px; }
-            nav { display: none; }
+            nav { padding: 15px 5%; }
+            nav a { margin-left: 15px; font-size: 14px; }
             .hero p { font-size: 18px; }
+            .grid { grid-template-columns: 1fr; }
+            .box { padding: 25px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 36px; }
+            .title { font-size: 28px; }
+            .hero p { font-size: 16px; }
+            .cta-button, .marketplace-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Hintergrund-Karten-Animationen -->
     <div class="card-bg card1"></div>
     <div class="card-bg card2"></div>
     <div class="card-bg card3"></div>
+    <div class="card-bg card4"></div>
+    <div class="card-bg card5"></div>
 
+    <!-- Navigation -->
     <nav>
-        <div><strong>SealedStock</strong></div>
+        <a href="#" class="logo-nav">SealedStock</a>
         <div>
-            <a href="#about">Warum SealedStock</a>
+            <a href="#tcg-welten">TCG Welten</a>
+            <!-- <a href="#aktuelle-sets">Aktuelle Sets</a> -->
+            <a href="#warum-sammeln">Warum Sammeln?</a>
+            <a href="#marktplatz">Marktplatz</a>
             <a href="#contact">Kontakt</a>
-            <a href="#impressum">Impressum</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <div class="hero">
         <div>
-            <img src="logo.png" class="logo" alt="SealedStock Logo"><br><br><br><br><br>
-            <h1>Collect today.<br><span class="gold">Preserve tomorrow.</span></h1>
-            <p>Original versiegelte Trading-Card-Produkte – Booster Packs, Displays, Elite Trainer Boxen, Zubehör und vieles mehr für Sammler und TCG-Enthusiasten.</p>
-            <a class="button" href="#about">Mehr erfahren</a>
+            <img src="logo.png" class="logo" alt="SealedStock Logo">
+            <h1>Entdecke die Welt der<br><span class="gold">Trading Card Games</span></h1>
+            <p>Von Pokémon über One Piece bis Magic: The Gathering – bei uns findest du versiegelte Booster, Displays und Sammlerstücke für deine Leidenschaft. Original, sicher verpackt und direkt aus Deutschland.</p>
+            <a class="cta-button" href="#tcg-welten">TCG Welten erkunden</a>
         </div>
     </div>
 
-    <section>
-        <h2 class="title">Trading Card Welten</h2>
+    <!-- TCG Welten Section -->
+    <section id="tcg-welten">
+        <h2 class="title">TCG Welten</h2>
+        <p class="subtitle">Tauche ein in die spannendsten Trading Card Game-Universen und entdecke, was jede Welt einzigartig macht.</p>
+        
         <div class="grid">
             <div class="box">
-                <h3>Pokémon</h3>
-                <p>Die gigantische Welt von Pokémon. Von klassischen Sets bis zu den neuesten Releases – ideal für Sammler und Liebhaber</p>
+                <div class="feature-icon">🎮</div>
+                <h3>Pokémon TCG</h3>
+                <p>Die ikonische Welt von Pokémon mit über 25 Jahren Geschichte. Von den klassischen Basis-Sets bis zu den neuesten Expansionen wie <strong>Scarlet & Violet</strong> oder <strong>Crown Zenith</strong> – hier findest du alles für Sammler und Spieler.</p>
             </div>
+            
             <div class="box">
-                <h3>One Piece</h3>
-                <p>Das erfolgreiche TCG mit einer rasant wachsenden Community und begehrten Sammleritems.</p>
+                <div class="feature-icon">⚓</div>
+                <h3>One Piece TCG</h3>
+                <p>Das aufstrebende TCG mit einer rasant wachsenden Community. Sammle Karten deiner Lieblingscharaktere aus der Welt von Eiichiro Oda und erlebe strategische Duelle. <strong>OP-01 bis OP-06</strong> und mehr.</p>
             </div>
+            
             <div class="box">
+                <div class="feature-icon">✨</div>
                 <h3>Disney Lorcana</h3>
-                <p>Disney-Magie trifft strategisches Gameplay – eines der spannendsten modernen Trading Card Games.</p>
+                <p>Disney-Magie trifft auf strategisches Gameplay. Mit Charakteren aus über 100 Jahren Disney-Geschichte ist Lorcana eines der spannendsten modernen TCGs. <strong>Erste Welle & Promos</strong> verfügbar.</p>
             </div>
+            
             <div class="box">
-                <h3>Magic The Gathering</h3>
-                <p>Der Klassiker unter den Trading Card Games – komplex, zeitlos und mit einer einzigartigen Sammlerhistorie!</p>
+                <div class="feature-icon">🔮</div>
+                <h3>Magic: The Gathering</h3>
+                <p>Der unangefochtene Klassiker unter den TCGs. Komplexe Mechaniken, eine tiefgreifende Lore und eine der größten Sammler-Communities weltweit. <strong>Latest Sets & Commander</strong> im Sortiment.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">🃏</div>
+                <h3>Flesh and Blood</h3>
+                <p>Ein dynamisches TCG mit Fokus auf actionreiches Gameplay. Hochwertige Karten und ein einzigartiges Spielgefühl machen Flesh and Blood zu einem absoluten Highlight für Enthusiasten.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">🌌</div>
+                <h3>Yu-Gi-Oh!</h3>
+                <p>Das TCG, das eine ganze Generation geprägt hat. Mit seinen ikonischen Monstern und strategischen Deckbuilding-Möglichkeiten bleibt Yu-Gi-Oh! ein Dauerbrenner.</p>
             </div>
         </div>
     </section>
 
-<section id="about">
-    <h2 class="title">Warum SealedStock?</h2>
-
-    <div class="grid">
-        <div class="box">
-            <h3>✓ Original versiegelt</h3>
-            <p>Alle Produkte stammen aus offiziellen Vertriebswegen.</p>
+    <!-- Aktuelle Sets Section -->
+    <!-- <section id="aktuelle-sets">
+        <h2 class="title">Aktuelle Sets & Highlights</h2>
+        <p class="subtitle">Entdecke die neuesten Releases und begehrte Sammlerstücke aus den verschiedenen TCG-Universen.</p>
+        
+        <div class="grid">
+            <div class="box">
+                <h3>🔥 Pokémon: Scarlet & Violet – 151 Illustrated</h3>
+                <p>Die neueste Expansion mit den beliebten Illustrated-Karten der ersten 151 Pokémon. <strong>Booster Boxen & Elite Trainer Boxen</strong> verfügbar.</p>
+            </div>
+            
+            <div class="box">
+                <h3>⚓ One Piece: OP-06 – Gates of Justice</h3>
+                <p>Das neueste Set aus der One Piece-Reihe mit brandneuen Karten und Mechaniken. <strong>Booster Displays & Starter Decks</strong> im Angebot.</p>
+            </div>
+            
+            <div class="box">
+                <h3>✨ Disney Lorcana: The First Chapter</h3>
+                <p>Der Start der Disney Lorcana-Reihe mit Karten aus Klassikern wie <strong>Mickey Mouse, Ariel und Simba</strong>. Perfekt für neue Sammler.</p>
+            </div>
+            
+            <div class="box">
+                <h3>🔮 MTG: Murders at Karlov Manor</h3>
+                <p>Das neueste Magic-Set mit einer spannenden Mystery-Storyline. <strong>Draft Booster, Set Booster & Commander Decks</strong> erhältlich.</p>
+            </div>
         </div>
+    </section> -->
 
-        <div class="box">
-            <h3>✓ Sicher verpackt</h3>
-            <p>Schutz für Sammlerprodukte steht an erster Stelle.</p>
+    <!-- Warum Sammeln? Section -->
+    <section id="warum-sammeln">
+        <h2 class="title">Warum bei SealedStock sammeln?</h2>
+        <p class="subtitle">Wir sind selbst Spieler & Sammler und wissen, was wichtig ist.</p>
+        
+        <div class="grid">
+            <div class="box">
+                <div class="feature-icon">✅</div>
+                <h3>100% Original & Versiegelt</h3>
+                <p>Alle unsere Produkte stammen direkt aus offiziellen Vertriebsquellen und sind garantiert original versiegelt.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">🛡️</div>
+                <h3>Sichere Verpackung</h3>
+                <p>Jedes Produkt wird mit Sorgfalt verpackt, um es vor Beschädigungen während des Versands zu schützen.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">🚀</div>
+                <h3>Schneller Versand</h3>
+                <p>Wir versenden alle Bestellungen innerhalb von 1-2 Werktagen direkt aus Deutschland.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">💛</div>
+                <h3>Sammler aus Leidenschaft</h3>
+                <p>Unser Team besteht aus selbst aus Spielern & Sammlern, die in der Community aktiv sind.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">💎</div>
+                <h3>Exklusive Angebote</h3>
+                <p>Wir versuchen regelmäßig exklusive Deals und Early-Bird-Angebote für neue Sets anzubieten.</p>
+            </div>
+            
+            <div class="box">
+                <div class="feature-icon">📦</div>
+                <h3>Große Auswahl</h3>
+                <p>Von Einzelkarten über Booster bis hin zu Displays – bei uns findest du alles, was das Sammlerherz begehrt.</p>
+            </div>
         </div>
-
-        <div class="box">
-            <h3>✓ Schneller Versand</h3>
-            <p>Versand direkt aus Deutschland.</p>
-        </div>
-
-        <div class="box">
-            <h3>✓ Sammler aus Leidenschaft</h3>
-            <p>Von Sammlern – für Sammler.</p>
-        </div>
-    </div>
-</section>
-
-    <section>
-        <h2 class="title">Unser Marktplatz</h2>
-        <p class="text">Besuche unser Profil auf Cardmarket:</p><br><br>
-        <a class="button" href="https://www.cardmarket.com/de/Magic/Users/sealedstock/Offers/Singles" target="_blank">SealedStock auf Cardmarket</a>
     </section>
 
+    <!-- Marktplatz Section -->
+    <section id="marktplatz" class="marketplace-section">
+        <h2 class="title">Unser Marktplatz</h2>
+        <p class="subtitle">Besuche unser Profil auf Cardmarket, um unsere aktuellen Angebote zu sehen und direkt zu handeln.</p>
+        <a class="marketplace-button" href="https://www.cardmarket.com/de/Magic/Users/sealedstock/Offers/Singles" target="_blank">SealedStock auf Cardmarket</a>
+    </section>
+
+    <!-- Kontakt Section -->
     <section id="contact">
         <h2 class="title">Kontakt</h2>
-        <p class="text">E-Mail: info@sealedstock.de</p>
+        <p class="subtitle">Du hast Fragen zu unseren Produkten oder möchtest eine individuelle Beratung? Schreib uns!</p>
+        
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Betreff" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+                </div>
+                <button type="submit">Nachricht absenden</button>
+            </form>
+        </div>
+        
+        <p class="subtitle" style="margin-top: 40px;">
+            Oder schreib uns direkt an: <a href="mailto:info@sealedstock.de" style="color: #e5be6a;">info@sealedstock.de</a>
+        </p>
     </section>
 
+    <!-- Impressum Section -->
     <section id="impressum">
         <h2 class="title">Impressum</h2>
-        <p class="text">
+        <p class="subtitle">
+	<font size=3>
             <strong>SealedStock</strong><br>
             Inhaber: A.Hornemann<br><br>
             Beethovenweg 37<br>
             14532 Kleinmachnow<br>
             Deutschland<br><br>
-            E-Mail: info@sealedstock.de<br>
+            E-Mail: <a href="mailto:info@sealedstock.de" style="color: #e5be6a;">info@sealedstock.de</a>
+	</font>
         </p>
     </section>
 
-    <section>
+    <!-- Datenschutz Section -->
+    <section id="datenschutz">
         <h2 class="title">Datenschutz</h2>
-        <p class="text"><font size="-1">
-            Diese Website verarbeitet personenbezogene Daten ausschließlich im Rahmen der Kontaktaufnahme per E-Mail. Beim Besuch der Website werden lediglich technisch notwendige Daten verarbeitet.
-        </font></p>
+        <p class="subtitle">
+	<font size=3>
+            Diese Website verarbeitet personenbezogene Daten ausschließlich im Rahmen der Kontaktaufnahme per E-Mail oder Formular. 
+            Beim Besuch der Website werden lediglich technisch notwendige Daten verarbeitet. 
+            Eine Weitergabe an Dritte erfolgt nicht.
+	</font>
+        </p>
     </section>
 
+    <!-- Footer -->
     <footer>
-        © 2026 SealedStock. Alle Rechte vorbehalten.<br><br>
-        <a href="#impressum">Impressum</a><br>
-	<br><br>
+        <p>© 2026 SealedStock. Alle Rechte vorbehalten.</p>
+        <p>
+            <a href="#impressum">Impressum</a> | 
+            <a href="#datenschutz">Datenschutz</a>
+        </p>
     </footer>
 </body>
 </html>
