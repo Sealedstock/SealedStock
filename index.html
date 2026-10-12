@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SealedStock | Trading Card Games & Collectibles</title>
     <meta name="description" content="SealedStock – Dein Experte für Trading Card Games wie Pokémon, One Piece, Disney Lorcana und Magic: The Gathering. Versiegelte Booster, Displays und Sammlerstücke.">
-    <meta name="keywords" content="Trading Card Games, Pokémon TCG, One Piece TCG, Disney Lorcana, Magic: The Gathering, Booster, Sammelkarten, Sealed Products, Cardmarket">
+    <meta name="keywords" content="Trading Card Games, Pokémon TCG, One Piece TCG, Disney Lorcana, Magic: The Gathering, Yu-Gi-Oh, Riftbound, Booster, Sammelkarten, Sealed Products, Cardmarket">
     <meta name="author" content="SealedStock">
     <meta property="og:title" content="SealedStock | Trading Card Games">
     <meta property="og:description" content="Entdecke die Welt der Trading Card Games – von Pokémon bis Magic: The Gathering. Sammle, handele und erlebe die Leidenschaft.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sealedstock.de">
+
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================================
-           CORE
-        ========================================================= */
         :root {
             --ink: #0d0f13;
             --ink-2: #171a20;
@@ -34,12 +32,10 @@
             --muted: #737780;
             --line: rgba(20,22,28,.12);
             --radius: 18px;
-            --shadow:
-                0 25px 70px rgba(9,11,15,.10);
+            --shadow: 0 25px 70px rgba(9,11,15,.10);
         }
 
-        *
-        {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -47,6 +43,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -61,9 +58,6 @@
             text-decoration: none;
         }
 
-        /* =========================================================
-           GLOBAL CARD TEXTURE
-        ========================================================= */
         .foil {
             position: relative;
             overflow: hidden;
@@ -74,15 +68,14 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background:
-                linear-gradient(
-                    115deg,
-                    transparent 0%,
-                    rgba(255,255,255,.08) 42%,
-                    rgba(255,255,255,.20) 50%,
-                    rgba(255,255,255,.05) 58%,
-                    transparent 100%
-                );
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                rgba(255,255,255,.08) 42%,
+                rgba(255,255,255,.20) 50%,
+                rgba(255,255,255,.05) 58%,
+                transparent 100%
+            );
             transform: translateX(-120%);
             transition: transform .8s ease;
         }
@@ -91,42 +84,42 @@
             transform: translateX(120%);
         }
 
-        /* =========================================================
-           COLLECTOR BAR
-        ========================================================= */
+        /* Collector bar */
         .collector-bar {
-            height: 34px;
+            min-height: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 8px 16px;
             background: var(--ink);
-            color: rgba(255,255,255,.58);
+            color: rgba(255,255,255,.68);
             font-size: 10px;
             letter-spacing: 2px;
+            text-align: center;
             text-transform: uppercase;
         }
 
-        /* =========================================================
-           NAV
-        ========================================================= */
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            height: 78px;
+            min-height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 5%;
-            background: rgba(241,240,236,.94);
+            gap: 24px;
+            padding: 12px 5%;
+            background: rgba(241,240,236,.96);
             border-bottom: 1px solid var(--line);
             backdrop-filter: blur(18px);
         }
 
         .brand {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 11px;
+            flex-shrink: 0;
             font-size: 23px;
             font-weight: 800;
             letter-spacing: -1px;
@@ -140,18 +133,12 @@
             align-items: center;
             justify-content: center;
             border-radius: 5px;
-            background:
-                linear-gradient(
-                    145deg,
-                    var(--gold-light),
-                    var(--gold)
-                );
+            background: linear-gradient(145deg, var(--gold-light), var(--gold));
             color: var(--ink);
             font-size: 11px;
             font-weight: 800;
             transform: rotate(-6deg);
-            box-shadow:
-                3px 3px 0 rgba(0,0,0,.08);
+            box-shadow: 3px 3px 0 rgba(0,0,0,.08);
         }
 
         .brand-mark::after {
@@ -162,13 +149,14 @@
             border-radius: 3px;
         }
 
-        .brand span {
+        .brand-name span {
             color: var(--gold);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 28px;
         }
 
@@ -176,74 +164,54 @@
             color: #555961;
             font-size: 13px;
             font-weight: 500;
-            transition: .25s ease;
+            transition: color .25s ease, background .25s ease;
         }
 
         .nav-links a:hover {
             color: var(--gold);
         }
 
-        .nav-email {
+        .nav-links .nav-email {
             padding: 11px 17px;
             border-radius: 7px;
             background: var(--ink);
-            color: white !important;
+            color: white;
         }
 
-        .nav-email:hover {
+        .nav-links .nav-email:hover {
             background: var(--gold);
-            color: var(--ink) !important;
+            color: var(--ink);
         }
 
-        /* =========================================================
-           HERO / DISPLAY CASE
-        ========================================================= */
+        /* Hero */
         .hero {
             position: relative;
-            min-height: calc(100vh - 112px);
+            min-height: min(720px, calc(100vh - 112px));
             display: flex;
             align-items: center;
             padding: 85px 5%;
             background:
-                radial-gradient(
-                    circle at 70% 20%,
-                    rgba(214,170,85,.20),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 100% 100%,
-                    rgba(214,170,85,.08),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #0c0f13,
-                    #20242c
-                );
+                radial-gradient(circle at 70% 20%, rgba(214,170,85,.20), transparent 28%),
+                radial-gradient(circle at 100% 100%, rgba(214,170,85,.08), transparent 35%),
+                linear-gradient(135deg, #0c0f13, #20242c);
             color: white;
             overflow: hidden;
         }
 
-        /* Card pattern */
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
             opacity: .18;
-            background-image:
-                linear-gradient(
-                    115deg,
-                    transparent 40%,
-                    rgba(255,255,255,.06) 50%,
-                    transparent 60%
-                );
+            background-image: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.06) 50%, transparent 60%);
             background-size: 260px 260px;
+            pointer-events: none;
         }
 
         .hero-inner {
             position: relative;
             z-index: 2;
-            width: min(1180px,100%);
+            width: min(1180px, 100%);
             margin: auto;
             display: grid;
             grid-template-columns: 1fr .85fr;
@@ -272,7 +240,7 @@
 
         .hero h1 {
             max-width: 750px;
-            font-size: clamp(48px,6vw,79px);
+            font-size: clamp(48px, 6vw, 79px);
             line-height: .98;
             letter-spacing: -4px;
             font-weight: 800;
@@ -286,7 +254,7 @@
         .hero-copy {
             max-width: 650px;
             margin-top: 29px;
-            color: rgba(255,255,255,.64);
+            color: rgba(255,255,255,.72);
             font-size: 18px;
             line-height: 1.75;
         }
@@ -321,7 +289,7 @@
         }
 
         .button-secondary {
-            border: 1px solid rgba(255,255,255,.22);
+            border: 1px solid rgba(255,255,255,.3);
             color: white;
         }
 
@@ -330,9 +298,7 @@
             color: var(--gold-light);
         }
 
-        /* =========================================================
-           HERO CARDS
-        ========================================================= */
+        /* Decorative hero cards */
         .card-stage {
             position: relative;
             min-height: 500px;
@@ -347,16 +313,10 @@
             height: 345px;
             padding: 10px;
             border-radius: 16px;
-            background:
-                linear-gradient(
-                    145deg,
-                    #353a44,
-                    #14171c
-                );
+            background: linear-gradient(145deg, #353a44, #14171c);
             border: 1px solid rgba(214,170,85,.5);
-            box-shadow:
-                0 40px 80px rgba(0,0,0,.45);
-            transition: .5s ease;
+            box-shadow: 0 40px 80px rgba(0,0,0,.45);
+            transition: transform .5s ease;
         }
 
         .trading-card-inner {
@@ -369,12 +329,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(214,170,85,.12),
-                    transparent 55%
-                );
+            background: radial-gradient(circle at center, rgba(214,170,85,.12), transparent 55%);
         }
 
         .card-symbol {
@@ -399,53 +354,45 @@
 
         .card-subtitle {
             margin-top: 8px;
-            color: rgba(255,255,255,.38);
+            color: rgba(255,255,255,.58);
             font-size: 8px;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .card-one {
-            transform:
-                rotate(-13deg)
-                translate(-45px,10px);
-            opacity: .65;
+            transform: rotate(-13deg) translate(-45px, 10px);
+            opacity: .72;
         }
 
         .card-two {
-            transform:
-                rotate(7deg)
-                translate(45px,-15px);
+            transform: rotate(7deg) translate(45px, -15px);
             z-index: 2;
         }
 
         .card-two:hover {
-            transform:
-                rotate(4deg)
-                translate(45px,-25px);
+            transform: rotate(4deg) translate(45px, -25px);
         }
 
         .card-number {
             position: absolute;
             right: 15px;
             bottom: 12px;
-            color: rgba(255,255,255,.2);
+            color: rgba(255,255,255,.48);
             font-size: 10px;
             letter-spacing: 2px;
         }
 
-        /* =========================================================
-           SECTION BASE
-        ========================================================= */
+        /* Section base */
         .section {
-            width: min(1180px,calc(100% - 40px));
+            width: min(1180px, calc(100% - 40px));
             margin: auto;
-            padding: 110px 0;
+            padding: 100px 0;
         }
 
         .section-head {
             max-width: 720px;
-            margin-bottom: 52px;
+            margin-bottom: 48px;
         }
 
         .section-head.center {
@@ -457,7 +404,7 @@
         .eyebrow {
             display: block;
             margin-bottom: 13px;
-            color: var(--gold);
+            color: #b88932;
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 2.5px;
@@ -465,7 +412,7 @@
         }
 
         .heading {
-            font-size: clamp(35px,4vw,50px);
+            font-size: clamp(35px, 4vw, 50px);
             line-height: 1.04;
             letter-spacing: -1.8px;
             font-weight: 800;
@@ -478,97 +425,74 @@
             line-height: 1.75;
         }
 
-        /* =========================================================
-           TCG COLLECTION
-        ========================================================= */
+        /* TCG logos: consistent height and proportional scaling */
         #tcg-welten {
             background: var(--paper);
         }
 
         .collection-grid {
             display: grid;
-            grid-template-columns:
-                repeat(3,1fr);
-            gap: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: center;
+            gap: 28px;
+            margin-top: 42px;
         }
 
-        .collection-card {
-            position: relative;
-            min-height: 110px;
-            padding: 22px;
+        .collection-logo {
+            min-width: 0;
+            height: 155px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            background: white;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: .3s ease;
+            padding: 18px;
         }
 
-        .collection-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(214,170,85,.55);
-            box-shadow: var(--shadow);
+        .collection-logo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 300px;
+            object-fit: contain;
+            object-position: center;
+            transition: transform .3s ease;
         }
 
-        /* Holographic shine */
-        .collection-card::before {
-            content: "";
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            right: -140px;
-            top: -140px;
-            border-radius: 50%;
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(214,170,85,.18),
-                    transparent 65%
-                );
+        .collection-logo:hover img {
+            transform: scale(1.05);
         }
 
-        .collection-card h3 {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        /* =========================================================
-           WHY / COLLECTOR BENEFITS
-        ========================================================= */
+        /* Collector benefits */
         #warum-sammeln {
-            background: ;
+            background: #eeede8;
         }
 
         .collector-layout {
             display: grid;
             grid-template-columns: .75fr 1.25fr;
-            gap: 80px;
+            gap: 60px;
         }
 
         .collector-intro {
             position: sticky;
             top: 120px;
             height: fit-content;
-            padding-right: 20px; /* Abstand zum Rand hinzugefügt */
+            padding-right: 10px;
         }
 
         .collector-intro .heading {
-            max-width: 125px;
+            max-width: 470px;
         }
 
         .collector-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 15px;
-            padding-left: 20px; /* Abstand zum Rand hinzugefügt */
         }
 
         .collector-card {
             position: relative;
-            padding: 34px 35px 36px;
-            min-height: 235px;
+            padding: 30px;
+            min-height: 225px;
             background: #f7f7f5;
             border: 1px solid var(--line);
             border-radius: 17px;
@@ -585,12 +509,14 @@
             height: 90px;
             border-radius: 50%;
             border: 1px solid rgba(214,170,85,.18);
+            pointer-events: none;
         }
 
         .collector-card:hover {
             background: white;
             border-color: rgba(214,170,85,.55);
             box-shadow: var(--shadow);
+            transform: translateY(-3px);
         }
 
         .collector-icon {
@@ -615,13 +541,9 @@
             color: var(--muted);
             font-size: 14px;
             line-height: 1.75;
-            max-width: 390px;
         }
 
-        /* =========================================================
-           MARKETPLACE / CARDMARKET
-        ==================================
-        ======================= */
+        /* Marketplace */
         .marketplace {
             position: relative;
             width: 100%;
@@ -641,12 +563,13 @@
             font-size: 190px;
             font-weight: 800;
             letter-spacing: -15px;
+            pointer-events: none;
         }
 
         .marketplace-inner {
             position: relative;
             z-index: 2;
-            width: min(1180px,100%);
+            width: min(1180px, 100%);
             margin: auto;
             display: flex;
             align-items: center;
@@ -660,7 +583,7 @@
 
         .marketplace .lead {
             max-width: 650px;
-            color: rgba(255,255,255,.60);
+            color: rgba(255,255,255,.68);
         }
 
         .marketplace-button {
@@ -682,23 +605,16 @@
             color: var(--ink);
         }
 
-        /* =========================================================
-           CONTACT
-        ========================================================= */
+        /* Contact */
         .contact {
             width: 100%;
             padding: 100px 5%;
-            background:
-                linear-gradient(
-                    135deg,
-                    #e9e8e4,
-                    #f5f4f1
-                );
+            background: linear-gradient(135deg, #e9e8e4, #f5f4f1);
         }
 
         .contact-box {
             position: relative;
-            width: min(950px,100%);
+            width: min(950px, 100%);
             margin: auto;
             padding: 70px 55px;
             text-align: center;
@@ -747,8 +663,7 @@
             background: var(--ink);
             color: var(--gold-light);
             font-size: 25px;
-            box-shadow:
-                5px 5px 0 rgba(214,170,85,.20);
+            box-shadow: 5px 5px 0 rgba(214,170,85,.20);
         }
 
         .contact-box .heading {
@@ -781,9 +696,7 @@
             transform: translateY(-2px);
         }
 
-        /* =========================================================
-           LEGAL
-        ========================================================= */
+        /* Legal */
         .legal {
             background: white;
             border-top: 1px solid var(--line);
@@ -791,7 +704,7 @@
 
         .legal-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 18px;
         }
 
@@ -814,16 +727,14 @@
         }
 
         .legal-card a {
-            color: var(--gold);
+            color: #a77725;
+            overflow-wrap: anywhere;
         }
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
         footer {
             padding: 35px 5%;
             background: var(--ink);
-            color: rgba(255,255,255,.43);
+            color: rgba(255,255,255,.58);
             text-align: center;
             font-size: 13px;
         }
@@ -836,9 +747,7 @@
             color: var(--gold-light);
         }
 
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
+        /* Responsive */
         @media (max-width: 1000px) {
             .hero-inner {
                 grid-template-columns: 1fr;
@@ -848,13 +757,9 @@
                 display: none;
             }
 
-            .collection-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
             .collector-layout {
                 grid-template-columns: 1fr;
-                gap: 45px;
+                gap: 35px;
             }
 
             .collector-intro {
@@ -862,24 +767,34 @@
                 padding-right: 0;
             }
 
-            .collector-grid {
-                padding-left: 0;
-            }
-
             .marketplace-inner {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .collection-grid {
+                gap: 18px;
+            }
+
+            .collection-logo {
+                height: 135px;
+                padding: 12px;
             }
         }
 
         @media (max-width: 700px) {
             .collector-bar {
                 font-size: 8px;
-                letter-spacing: 1.3px;
+                letter-spacing: 1.2px;
             }
 
             nav {
-                height: 66px;
+                min-height: 66px;
+                padding: 10px 5%;
+            }
+
+            .brand {
+                font-size: 21px;
             }
 
             .nav-links {
@@ -887,12 +802,12 @@
             }
 
             .hero {
-                min-height: calc(100vh - 100px);
-                padding: 70px 6%;
+                min-height: auto;
+                padding: 72px 6%;
             }
 
             .hero h1 {
-                font-size: 45px;
+                font-size: clamp(40px, 11vw, 52px);
                 letter-spacing: -2.5px;
             }
 
@@ -902,19 +817,35 @@
 
             .section {
                 width: calc(100% - 32px);
-                padding: 75px 0;
+                padding: 72px 0;
+            }
+
+            .section-head {
+                margin-bottom: 30px;
             }
 
             .collection-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                margin-top: 25px;
+            }
+
+            .collection-logo {
+                height: 115px;
+                padding: 8px;
             }
 
             .collector-grid {
                 grid-template-columns: 1fr;
             }
 
+            .collector-card {
+                min-height: 0;
+                padding: 27px;
+            }
+
             .marketplace {
-                padding: 75px 5%;
+                padding: 72px 6%;
             }
 
             .marketplace::before {
@@ -924,23 +855,29 @@
             .marketplace-button {
                 width: 100%;
                 justify-content: center;
+                text-align: center;
             }
 
             .contact {
-                padding: 65px 16px;
+                padding: 60px 16px;
             }
 
             .contact-box {
-                padding: 50px 25px;
+                padding: 48px 22px;
             }
 
             .email-button {
                 width: 100%;
                 justify-content: center;
+                overflow-wrap: anywhere;
             }
 
             .legal-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .legal-card {
+                padding: 25px;
             }
         }
 
@@ -949,64 +886,46 @@
                 scroll-behavior: auto;
             }
 
-            * {
-                transition: none !important;
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- =========================================================
-         COLLECTOR BAR
-    ========================================================= -->
     <div class="collector-bar">
         Originale Trading Card Games · Versiegelt · Direkt aus Deutschland
     </div>
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================= -->
-    <nav>
-        <a href="#" class="brand">
-    <span class="brand-mark">SS</span>
-    SealedStock
-</a>
+    <nav aria-label="Hauptnavigation">
+        <a href="#" class="brand" aria-label="SealedStock Startseite">
+            <span class="brand-mark">SS</span>
+            <span class="brand-name">Sealed<span>Stock</span></span>
+        </a>
 
         <div class="nav-links">
-            <a href="#tcg-welten">
-                TCG Welten
-            </a>
-            <a href="#warum-sammeln">
-                Warum Sammeln?
-            </a>
-            <a href="#marktplatz">
-                Marktplatz
-            </a>
-            <a
-                href="#kontakt"
-                class="nav-email">
-                Kontakt per E-Mail
-            </a>
+            <a href="#tcg-welten">TCG Welten</a>
+            <a href="#warum-sammeln">Warum Sammeln?</a>
+            <a href="#marktplatz">Marktplatz</a>
+            <a href="#kontakt" class="nav-email">Kontakt per E-Mail</a>
         </div>
     </nav>
 
     <main>
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-inner">
                 <div>
-                    <div class="hero-kicker">
-                        Trading Card Games & Collectibles
-                    </div>
+                    <div class="hero-kicker">Trading Card Games &amp; Collectibles</div>
 
                     <h1>
                         Entdecke die Welt der
-                        <span>
-                            Trading Card Games
-                        </span>
+                        <span>Trading Card Games</span>
                     </h1>
 
                     <p class="hero-copy">
@@ -1017,72 +936,38 @@
                     </p>
 
                     <div class="hero-actions">
-                        <a
-                            href="#tcg-welten"
-                            class="button button-primary">
-                            TCG Welten erkunden
-                        </a>
-
-                        <a
-                            href="#marktplatz"
-                            class="button button-secondary">
-                            Zum Marktplatz
-                        </a>
+                        <a href="#tcg-welten" class="button button-primary">TCG Welten erkunden</a>
+                        <a href="#marktplatz" class="button button-secondary">Zum Marktplatz</a>
                     </div>
                 </div>
 
-                <!-- CARD DISPLAY -->
-                <div class="card-stage">
+                <div class="card-stage" aria-hidden="true">
                     <div class="trading-card card-one foil">
                         <div class="trading-card-inner">
-                            <div class="card-symbol">
-                                🃏
-                            </div>
-                            <div class="card-title">
-                                COLLECT
-                            </div>
-                            <div class="card-subtitle">
-                                Trading Card Games
-                            </div>
-                            <span class="card-number">
-                                01 / SS
-                            </span>
+                            <div class="card-symbol">🃏</div>
+                            <div class="card-title">COLLECT</div>
+                            <div class="card-subtitle">Trading Card Games</div>
+                            <span class="card-number">01 / SS</span>
                         </div>
                     </div>
 
                     <div class="trading-card card-two foil">
                         <div class="trading-card-inner">
-                            <div class="card-symbol">
-                                ✦
-                            </div>
-                            <div class="card-title">
-                                SEALEDSTOCK
-                            </div>
-                            <div class="card-subtitle">
-                                Trading Card Games
-                            </div>
-                            <span class="card-number">
-                                02 / SS
-                            </span>
+                            <div class="card-symbol">✦</div>
+                            <div class="card-title">SEALEDSTOCK</div>
+                            <div class="card-subtitle">Trading Card Games</div>
+                            <span class="card-number">02 / SS</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =====================================================
-             TCG WELTEN
-        ====================================================== -->
-        <section
-            class="section"
-            id="tcg-welten">
+        <!-- TCG WELTEN: Logos statt Textboxen -->
+        <section class="section" id="tcg-welten">
             <div class="section-head center">
-                <span class="eyebrow">
-                    Collection
-                </span>
-                <h2 class="heading">
-                    TCG Welten
-                </h2>
+                <span class="eyebrow">Collection</span>
+                <h2 class="heading">TCG Welten</h2>
                 <p class="lead">
                     Tauche ein in die spannendsten Trading Card Game-Universen
                     und entdecke, was jede Welt einzigartig macht.
@@ -1090,72 +975,72 @@
             </div>
 
             <div class="collection-grid">
-                <article class="collection-card foil">
-                    <h3>
-                        Pokémon TCG
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="pokemon-logo.png"
+                        alt="Pokémon Trading Card Game"
+                        loading="lazy"
+                    >
+                </div>
 
-                <article class="collection-card foil">
-                    <h3>
-                        One Piece TCG
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="One-piece-logo.png"
+                        alt="One Piece Card Game"
+                        loading="lazy"
+                    >
+                </div>
 
-                <article class="collection-card foil">
-                    <h3>
-                        Disney Lorcana
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="lorcana+logo.png"
+                        alt="Disney Lorcana"
+                        loading="lazy"
+                    >
+                </div>
 
-                <article class="collection-card foil">
-                    <h3>
-                        Magic: The Gathering
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="magic-the-gathering-logo.png"
+                        alt="Magic: The Gathering"
+                        loading="lazy"
+                    >
+                </div>
 
-                <article class="collection-card foil">
-                    <h3>
-                        Riftbound
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="yu-gi-oh.png"
+                        alt="Yu-Gi-Oh! Trading Card Game"
+                        loading="lazy"
+                    >
+                </div>
 
-                <article class="collection-card foil">
-                    <h3>
-                        Yu-Gi-Oh!
-                    </h3>
-                </article>
+                <div class="collection-logo">
+                    <img
+                        src="riftbound-logo.png"
+                        alt="Riftbound – League of Legends Trading Card Game"
+                        loading="lazy"
+                    >
+                </div>
             </div>
         </section>
 
-        <!-- =====================================================
-             WARUM SAMMELN
-        ====================================================== -->
-        <section
-            class="section"
-            id="warum-sammeln">
+        <!-- WARUM SAMMELN -->
+        <section class="section" id="warum-sammeln">
             <div class="collector-layout">
                 <div class="collector-intro">
-                    <span class="eyebrow">
-                        Collector's Choice
-                    </span>
-                    <h2 class="heading">
-                        Warum bei SealedStock sammeln?
-                    </h2>
+                    <span class="eyebrow">Collector's Choice</span>
+                    <h2 class="heading">Warum bei SealedStock sammeln?</h2>
                     <p class="lead">
-                        Wir sind selbst Spieler & Sammler und wissen,
+                        Wir sind selbst Spieler &amp; Sammler und wissen,
                         was wichtig ist.
                     </p>
                 </div>
 
                 <div class="collector-grid">
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            ✓
-                        </div>
-                        <h3>
-                            100% Original & Versiegelt
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">✓</div>
+                        <h3>100% Original &amp; Versiegelt</h3>
                         <p>
                             Alle unsere Produkte stammen direkt aus offiziellen
                             Vertriebsquellen und sind garantiert original versiegelt.
@@ -1163,12 +1048,8 @@
                     </article>
 
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            ◈
-                        </div>
-                        <h3>
-                            Sichere Verpackung
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">◇</div>
+                        <h3>Sichere Verpackung</h3>
                         <p>
                             Jedes Produkt wird mit Sorgfalt verpackt, um es vor
                             Beschädigungen während des Versands zu schützen.
@@ -1176,74 +1057,50 @@
                     </article>
 
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            →
-                        </div>
-                        <h3>
-                            Schneller Versand
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">→</div>
+                        <h3>Schneller Versand</h3>
                         <p>
-                            Wir versenden alle Bestellungen innerhalb von 1-2 Werktagen
+                            Wir versenden alle Bestellungen innerhalb von 1–2 Werktagen
                             direkt aus Deutschland.
                         </p>
                     </article>
 
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            ♥
-                        </div>
-                        <h3>
-                            Sammler aus Leidenschaft
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">♥</div>
+                        <h3>Sammler aus Leidenschaft</h3>
                         <p>
-                            Unser Team besteht selbst aus Spielern & Sammlern,
+                            Unser Team besteht selbst aus Spielern &amp; Sammlern,
                             die in der Community aktiv sind.
                         </p>
                     </article>
 
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            ◆
-                        </div>
-                        <h3>
-                            Exklusive Angebote
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">◆</div>
+                        <h3>Exklusive Angebote</h3>
                         <p>
                             Wir versuchen regelmäßig exklusive Deals und Early-Bird-
-                            Angebote für neue Sets für Dich bereitzustellen.
+                            Angebote für neue Sets für dich bereitzustellen.
                         </p>
                     </article>
 
                     <article class="collector-card foil">
-                        <div class="collector-icon">
-                            □
-                        </div>
-                        <h3>
-                            Große Auswahl
-                        </h3>
+                        <div class="collector-icon" aria-hidden="true">□</div>
+                        <h3>Große Auswahl</h3>
                         <p>
                             Von Einzelkarten über Booster bis hin zu Displays –
-                            bei kannst Du alles finden, was das Sammlerherz begehrt.
+                            bei uns findest du vieles, was das Sammlerherz begehrt.
                         </p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- =====================================================
-             CARDMARKET
-        ====================================================== -->
-        <section
-            class="marketplace"
-            id="marktplatz">
+        <!-- MARKTPLATZ -->
+        <section class="marketplace" id="marktplatz">
             <div class="marketplace-inner">
                 <div>
-                    <span class="eyebrow">
-                        Marketplace
-                    </span>
-                    <h2 class="heading">
-                        Unser Marktplatz
-                    </h2>
+                    <span class="eyebrow">Marketplace</span>
+                    <h2 class="heading">Unser Marktplatz</h2>
                     <p class="lead">
                         Besuche unser Profil auf Cardmarket, um unsere aktuellen
                         Angebote zu sehen und direkt zu handeln.
@@ -1253,106 +1110,71 @@
                 <a
                     href="https://www.cardmarket.com/de/Magic/Users/sealedstock/Offers/"
                     target="_blank"
-                    rel="noopener"
-                    class="marketplace-button">
-                    SealedStock auf Cardmarket
-                    →
+                    rel="noopener noreferrer"
+                    class="marketplace-button"
+                >
+                    SealedStock auf Cardmarket <span aria-hidden="true">→</span>
                 </a>
             </div>
         </section>
 
-        <!-- =====================================================
-             KONTAKT PER EMAIL
-        ====================================================== -->
-        <section
-            class="contact"
-            id="kontakt">
+        <!-- KONTAKT -->
+        <section class="contact" id="kontakt">
             <div class="contact-box">
                 <div class="contact-content">
-                    <div class="contact-icon">
-                        ✉
-                    </div>
-                    <span class="eyebrow">
-                        Contact
-                    </span>
-                    <h2 class="heading">
-                        Kontakt per E-Mail
-                    </h2>
-                    <p class="lead">
-                        Du hast Fragen zu unseren Produkten. Schreib uns!
-                    </p>
-                    <a
-                        href="mailto:info@sealedstock.de"
-                        class="email-button">
-                        info@sealedstock.de
-                        <span>
-                            →
-                        </span>
+                    <div class="contact-icon" aria-hidden="true">✉</div>
+                    <span class="eyebrow">Contact</span>
+                    <h2 class="heading">Kontakt per E-Mail</h2>
+                    <p class="lead">Du hast Fragen zu unseren Produkten? Schreib uns!</p>
+
+                    <a href="mailto:info@sealedstock.de" class="email-button">
+                        info@sealedstock.de <span aria-hidden="true">→</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- =====================================================
-             LEGAL
-        ====================================================== -->
-        <div class="legal">
-            <section class="section">
+        <!-- IMPRESSUM UND DATENSCHUTZ -->
+        <section class="legal" aria-label="Rechtliche Informationen">
+            <div class="section">
                 <div class="legal-grid">
-                    <div
-                        class="legal-card"
-                        id="impressum">
-                        <h2>
-                            Impressum
-                        </h2>
+                    <article class="legal-card" id="impressum">
+                        <h2>Impressum</h2>
                         <p>
                             <strong>SealedStock</strong><br>
-                            Inhaber: A.Hornemann<br><br>
+                            Inhaber: A. Hornemann<br><br>
                             Beethovenweg 37<br>
                             14532 Kleinmachnow<br>
                             Deutschland<br><br>
                             E-Mail:
-                            <a href="mailto:info@sealedstock.de">
-                                info@sealedstock.de
-                            </a>
+                            <a href="mailto:info@sealedstock.de">info@sealedstock.de</a>
                         </p>
-                    </div>
+                    </article>
 
-                    <div
-                        class="legal-card"
-                        id="datenschutz">
-                        <h2>
-                            Datenschutz
-                        </h2>
+                    <article class="legal-card" id="datenschutz">
+                        <h2>Datenschutz</h2>
                         <p>
                             Diese Website verarbeitet personenbezogene Daten
-                            ausschließlich im Rahmen der Kontaktaufnahme per
-                            E-Mail oder Formular.
-                            Beim Besuch der Website werden lediglich technisch
-                            notwendige Daten verarbeitet.
-                            Eine Weitergabe an Dritte erfolgt nicht.
+                            beispielsweise bei einer Kontaktaufnahme per E-Mail.
+                            Beim Besuch der Website können außerdem technisch
+                            notwendige Daten durch den Hosting-Anbieter verarbeitet
+                            werden. Bitte ergänze hier eine vollständige, auf deine
+                            tatsächlichen Dienste und Datenverarbeitungen abgestimmte
+                            Datenschutzerklärung.
                         </p>
-                    </div>
+                    </article>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
+    <!-- FOOTER -->
     <footer>
+        <p>© 2026 SealedStock. Alle Rechte vorbehalten.</p>
         <p>
-            © 2026 SealedStock. Alle Rechte vorbehalten.
-        </p>
-        <p>
-            <a href="#impressum">
-                Impressum
-            </a>
+            <a href="#impressum">Impressum</a>
             &nbsp; | &nbsp;
-            <a href="#datenschutz">
-                Datenschutz
-            </a>
+            <a href="#datenschutz">Datenschutz</a>
         </p>
     </footer>
 </body>
